@@ -1,0 +1,2 @@
+class ReflectionTagsController < ApplicationController
+end
