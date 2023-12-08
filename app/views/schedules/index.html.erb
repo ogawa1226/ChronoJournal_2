@@ -1,2 +1,3 @@
-<h1>Schedules#index</h1>
-<p>Find me in app/views/schedules/index.html.erb</p>
+<%= month_calendar do |schedule| %>
+  <%= link_to schedule.day, schedule_path(schedule) %>
+<% end %>

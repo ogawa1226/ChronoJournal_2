@@ -1,0 +1,27 @@
+<%= form_with model: @schedule do |f| %>
+
+  <h6>タイトル</h6>
+  <%= f.text_field :title %>
+
+  <h6>カテゴリー</h6>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "選択して下さい" %>
+
+  <h6>開始時間</h6>
+  <%= f.time_select :start_date %>
+
+  <h6>終了時間</h6>
+  <%= f.time_select :end_date %>
+
+  <h6>終日</h6>
+  <%= f.check_box :all_day %>
+
+  <h6>メモ</h6>
+  <%= f.text_area :memo %>
+
+  <% if local_assigns[:edit_flag].present? %>
+    <%= f.submit '更新' %>
+  <% else %>
+    <%= f.submit '保存' %>
+  <% end %>
+<% end %>
+

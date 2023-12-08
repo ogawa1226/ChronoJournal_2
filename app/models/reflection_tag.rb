@@ -1,6 +1,6 @@
 class ReflectionTag < ApplicationRecord
   
-  belong_to :reflection
-  belong_to :tag
+  belongs_to :reflection
+  belongs_to :tag
   
 end

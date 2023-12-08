@@ -1,2 +1,8 @@
-<h1>Schedules#new</h1>
-<p>Find me in app/views/schedules/new.html.erb</p>
+<h1>新規スケジュール</h1>
+
+<%#= render 'schedule', schedule: @schedule %>
+
+<%= form_with model: @schedule, url: schedules_path, html: { method: :schedule}, local: true do |f| %>
+  <%= render :partial => 'schedule', :locals => {:f => f} %>
+<% end %>
+

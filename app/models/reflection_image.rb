@@ -1,6 +1,6 @@
 class ReflectionImage < ApplicationRecord
   
-  belong_to :reflection
+  belongs_to :reflection
   
   has_one_attached :image
   
