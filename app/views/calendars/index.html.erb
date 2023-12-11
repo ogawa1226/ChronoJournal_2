@@ -1,0 +1,5 @@
+<div class="container">
+    <%= month_calendar do |schedule| %>
+      <%= link_to schedule.day, schedules_path(date: [schedule.year, schedule.month, schedule.day].join("-")) %>
+    <% end %>
+</div>

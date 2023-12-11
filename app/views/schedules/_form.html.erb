@@ -1,5 +1,5 @@
-<%= form_with model: @schedule do |f| %>
-
+<%= form_with model: schedule, local: true do |f| %>
+  <%= f.hidden_field :day, :value => date %>
   <h6>タイトル</h6>
   <%= f.text_field :title %>
 
@@ -7,10 +7,10 @@
   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "選択して下さい" %>
 
   <h6>開始時間</h6>
-  <%= f.time_select :start_date %>
+  <%= f.time_select :start_time %>
 
   <h6>終了時間</h6>
-  <%= f.time_select :end_date %>
+  <%= f.time_select :end_time %>
 
   <h6>終日</h6>
   <%= f.check_box :all_day %>
@@ -18,10 +18,6 @@
   <h6>メモ</h6>
   <%= f.text_area :memo %>
 
-  <% if local_assigns[:edit_flag].present? %>
-    <%= f.submit '更新' %>
-  <% else %>
-    <%= f.submit '保存' %>
-  <% end %>
-<% end %>
+  <%= f.submit btn_text %>
 
+<% end %>

@@ -1,2 +1,28 @@
-<h1>スケジュール</h1>
-<p>Find me in app/views/schedules/show.html.erb</p>
+<h4>詳細スケジュール</h4>
+
+<div>
+  <%= @schedule.title %>
+</div>
+<div>
+  <%= @schedule.category.name %>
+</div>
+<div>
+  <%= @schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
+  〜
+  <%= @schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
+</div>
+<div>
+  <%= @schedule.all_day %>
+</div>
+
+<div>
+  <%= @schedule.memo %>
+</div>
+
+<div>
+  <%= link_to "編集", edit_schedule_path(@schedule.id) %>
+</div>
+
+<div>
+  <%= link_to "削除", schedule_path(@schedule.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</div>

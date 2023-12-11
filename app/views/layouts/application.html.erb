@@ -15,10 +15,7 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "カレンダー", schedules_path %>
-        </li>
-        <li>
-          <%= link_to "振り返り一覧", reflections_path %>
+          <%= link_to "カレンダー", calendars_path %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 

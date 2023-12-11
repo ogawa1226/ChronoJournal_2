@@ -1,3 +1,26 @@
-<%= month_calendar do |schedule| %>
-  <%= link_to schedule.day, schedule_path(schedule) %>
-<% end %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>
+        <%= @date %>
+        <%= link_to '追加', new_schedule_path(date: @date) %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td>
+          <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
+          〜
+          <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
+          
+          <%= link_to schedule.title, schedule_path(schedule.id) %>
+          
+          <%= schedule.category.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

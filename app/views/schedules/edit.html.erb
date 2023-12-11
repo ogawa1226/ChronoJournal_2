@@ -1,5 +1,3 @@
 <h1>スケジュール編集</h1>
 
-<%= form_with model: @schedule, local: true do |f| %>
-  <%= render :partial => 'schedule', :locals => {:f => f, :edit_flag => true} %>
-<% end %>
+<%= render 'form', schedule: @schedule, btn_text: '更新', date: @schedule.day %>
