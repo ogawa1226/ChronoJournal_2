@@ -19,18 +19,24 @@ class ReflectionsController < ApplicationController
   end
 
   def edit
-    @reflection = reflection.find(params[:id])
+    @reflection = Reflection.find(params[:id])
+  end
+
+  def destroy
+    reflection = Reflection.find(params[:id])
+    reflection.destroy
+    redirect_to calendars_path
   end
 
   def update
     reflection = Reflection.find(params[:id])
     reflection.update(reflection_params)
-    redirect_to calendars_pat
+    redirect_to calendars_path
   end
 
   private
 
   def reflection_params
-    params.require(:reflection).permit(:title, :content, :image)
+    params.require(:reflection).permit(:title, :content, images: [])
   end
 end

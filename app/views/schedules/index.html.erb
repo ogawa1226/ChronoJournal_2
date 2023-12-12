@@ -19,11 +19,13 @@
             〜
             <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
           <% end %>
-          
+
           <%= link_to schedule.title, schedule_path(schedule.id) %>
-          
+
           <%= schedule.category.name %>
-          
+
+          <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id) %>
+
           <ul>
             <% schedule.reflections.each do |reflection| %>
               <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
