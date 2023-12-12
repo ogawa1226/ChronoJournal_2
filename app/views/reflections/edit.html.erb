@@ -1,2 +1,4 @@
-<h1>Reflections#edit</h1>
-<p>Find me in app/views/reflections/edit.html.erb</p>
+<%= @date %>
+<h1>振り返り編集</h1>
+
+<%= render 'list', reflections: @reflection, btn_text: '編集' %>

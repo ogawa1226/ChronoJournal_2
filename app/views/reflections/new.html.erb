@@ -1,2 +1,4 @@
-<h1>Reflections#new</h1>
-<p>Find me in app/views/reflections/new.html.erb</p>
+<%= @date %>
+<h1>振り返り新規投稿</h1>
+
+<%= render 'list', reflections: @reflection, btn_text: '投稿' %>

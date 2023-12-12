@@ -1,2 +1,21 @@
-<h1>Reflections#show</h1>
-<p>Find me in app/views/reflections/show.html.erb</p>
+<%= @date %>
+
+<!--後に消すかも-->
+<h1>振り返り詳細</h1>
+<!--ここまで-->
+
+<div>
+  <%= @reflection.title %>
+</div>
+
+<div>
+  <%= @reflection.content %>
+</div>
+
+<div>
+  <%= link_to "編集", edit_reflection_path(@reflection.id) %>
+</div>
+
+<div>
+  <%= link_to "削除", reflection_path(@reflection.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+</div>
