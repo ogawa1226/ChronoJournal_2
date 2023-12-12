@@ -7,14 +7,15 @@ Rails.application.routes.draw do
   resources :calendars, only: [:index]
   resources :schedules do
     resource :marks, only: [:create, :destroy]
+    resources :reflections do
+      resources :reflection_tag, only: [:create, :destroy]
+    end
   end
 
   # get 'schedules/:date/date_index', to:'schedules#date_index', as: :date_schedules
   # get 'schedules/:date/date_new', to:'schedules#date_new', as: :new_date_schedules
 
-  resources :reflections do
-    resources :reflection_tag, only: [:create, :destroy]
-  end
+
   get 'schedules/search' , to:'schedules#search'
   get 'reflections/search' , to:'reslections#search'
 

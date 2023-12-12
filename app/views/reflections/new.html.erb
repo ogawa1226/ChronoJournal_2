@@ -1,4 +1,4 @@
 <%= @date %>
 <h1>振り返り新規投稿</h1>
 
-<%= render 'list', reflections: @reflection, btn_text: '投稿' %>
+<%= render partial: 'list', locals: {reflection: @reflection, btn_text: '投稿'} %>

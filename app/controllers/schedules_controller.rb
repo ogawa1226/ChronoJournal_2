@@ -2,8 +2,8 @@ class SchedulesController < ApplicationController
 
   def index
     @date = params[:date]
-    @schedules = Schedule.where(@date)
-    # @schedules = Schedule.where(day: @date)
+    pp DateTime.parse(@date)
+    @schedules = Schedule.where(start_time: DateTime.parse(@date).in_time_zone('Asia/Tokyo').all_day)
   end
 
   def new
@@ -19,7 +19,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    @schedule = Schedule.find(params[:id])
+    @schedule = Schedule.find(params[:schedule_id])
   end
 
   def edit
@@ -31,13 +31,13 @@ class SchedulesController < ApplicationController
     schedule.update(schedule_params)
     redirect_to calendars_path
   end
-  
+
   def destroy
     schedule = Schedule.find(params[:id])
     schedule.destroy
     redirect_to calendars_path
   end
-  
+
   private
 
   def schedule_params
