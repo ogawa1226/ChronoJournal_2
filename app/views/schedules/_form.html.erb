@@ -7,10 +7,10 @@
   <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "選択して下さい" %>
 
   <h6>開始時間</h6>
-  <%= f.time_select :start_time %>
+  <%= f.datetime_select :start_time %>
 
   <h6>終了時間</h6>
-  <%= f.time_select :end_time %>
+  <%= f.datetime_select :end_time %>
 
   <h6>終日</h6>
   <%= f.check_box :all_day %>
