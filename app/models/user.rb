@@ -6,4 +6,11 @@ class User < ApplicationRecord
          
   has_many :schedules, dependent: :destroy
   
-end
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |end_user|
+      end_user.password = SecureRandom.urlsafe_base64
+      end_user.name = 'Guest User'
+    end
+  end
+
+end 

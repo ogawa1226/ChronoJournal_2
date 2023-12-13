@@ -1,6 +1,13 @@
 <h1>Welcome to ChronoJournal</h1>
 
-<%= link_to "新規会員登録", new_user_registration_path %><br>
-<%= link_to "ログイン", new_user_session_path %>
-
-<P>ゲストログイン（リンク未完成）</P>
+<div class="btn-wrapper col-10 mx-auto">
+  <div class="row">
+    <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+  </div>
+  <div class="row">
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
+  </div>
+  <div class="row">
+    <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+  </div>
+</div>
