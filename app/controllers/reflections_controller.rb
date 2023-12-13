@@ -38,6 +38,6 @@ class ReflectionsController < ApplicationController
   private
 
   def reflection_params
-    params.require(:reflection).permit(:title, :content, images: [])
+    params.require(:reflection).permit(:schedule_id, :title, :content, images: [])
   end
 end
