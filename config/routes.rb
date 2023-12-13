@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :schedules do
     resource :marks, only: [:create, :destroy]
     resources :reflections do
-      resources :reflection_tag, only: [:create, :destroy]
+      resources :reflection_tags, only: [:create, :destroy]
     end
   end
 

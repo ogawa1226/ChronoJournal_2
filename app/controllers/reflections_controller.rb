@@ -4,7 +4,8 @@ class ReflectionsController < ApplicationController
 
   def new
     @date = params[:date]
-    @reflection = Reflection.new
+    # @reflection = Reflection.new
+    @reflection = Reflection.new(schedule_id: params[:schedule_id])
   end
 
   def create
