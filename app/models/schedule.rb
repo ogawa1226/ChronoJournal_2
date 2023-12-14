@@ -5,11 +5,7 @@ class Schedule < ApplicationRecord
   has_many :marks
   has_many :reflections, dependent: :destroy
   
-  def self.looks(search, word)
-    if search == "partial"
-      @schedule = Schedule.where("title LIKE?", "%#{word}%")
-    else
-      @schedule = Schedule.all
-    end
+  def self.looks(word)
+    @schedule = Schedule.where("title LIKE?", "%#{word}%")
   end
 end

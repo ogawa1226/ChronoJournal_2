@@ -12,16 +12,9 @@ Rails.application.routes.draw do
     end
   end
 
-  # get 'schedules/:date/date_index', to:'schedules#date_index', as: :date_schedules
-  # get 'schedules/:date/date_new', to:'schedules#date_new', as: :new_date_schedules
-
-
-  # get 'schedules/search' , to:'schedules#search'
-  # get 'reflections/search' , to:'reslections#search'
+  get "/search", to: "searches#search", as: :search
   
-  get "/searches", to: "searches#search"
-  
-  devise_scope :end_user do
+  devise_scope :user do
     post 'users/guest_sign_in', to:'sessions#guest_sign_in'
   end
 

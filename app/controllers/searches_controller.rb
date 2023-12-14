@@ -5,9 +5,9 @@ class SearchesController < ApplicationController
     @word = params[:word]
     
     if @range == "Schedule"
-      @schedules = Schedule.looks(params[:search], params[:word])
+      @schedules = Schedule.looks(params[:word])
     else
-      @reflections = Reflection.looks(params[:search], params[:word])
+      @reflections = Reflection.looks(params[:word])
     end
   end
 end

@@ -5,12 +5,15 @@ class Reflection < ApplicationRecord
   
   has_many_attached :images
   
-  
-  def self.looks(search, word)
-    if search == "partial"
-      @reflection = Reflection.where("title LIKE?", "%#{word}%")
-    else
-      @reflection = Reflection.all
+  # mapメソッドを使って各イメージに対してリサイズした新しい画像を返す
+  def get_images
+    images.map do |image|
+      image.variant(resize_to_limit: [100, 100]).processed
     end
+  end
+  
+  
+  def self.looks(word)
+    @reflection = Reflection.where("title LIKE?", "%#{word}%")
   end
 end

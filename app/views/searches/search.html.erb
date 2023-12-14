@@ -1,7 +1,7 @@
 <% if @range == "Schedule" %>
 
   <!--検索対象モデルがScheduleの時 -->
-  <h6>Schedule search for "<% @word %>"</h6>
+  <h6>Schedule search for "<%= @word %>"</h6>
 
   <thead>
     <tr>
@@ -51,7 +51,7 @@
   <tbody>
     <% @reflections.each do |reflection| %>
       <tr>
-        <%#= reflection.day %>
+        <%= reflection.schedule.day %>
 
         <%= link_to reflection.title, schedule_reflection_path(schedule_id: reflection.schedule_id, id: reflection.id) %>
 

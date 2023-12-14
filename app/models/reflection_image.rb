@@ -1,3 +1,0 @@
-class ReflectionImage < ApplicationRecord
-end
-
