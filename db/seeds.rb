@@ -6,11 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create!(
-  name: "テスト",
-  email: "test@test.com",
-  password: "123456"
-)
+user = User.find_or_create_by(name: "テスト", email: "test@test.com") do |u|
+  u.password = "123456"
+end
 puts "ユーザーを作成"
 
 
@@ -26,7 +24,7 @@ categories = [
 ]
 
 categories.each do |category|
-  Category.create!(name: category)
+  Category.find_or_create_by(name: category)
   puts "カテゴリー『#{category}』を作成"
 end
 
@@ -51,7 +49,7 @@ end
     title: "振り返りタイトル",
     content: "内容"
   )
-  
+
 end
 puts "スケジュール全作成"
 

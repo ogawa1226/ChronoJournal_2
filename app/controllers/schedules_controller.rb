@@ -1,8 +1,7 @@
 class SchedulesController < ApplicationController
 
   def index
-    @date = params[:date]
-    pp DateTime.parse(@date)
+    @date = params[:date] ||= Date.today.to_s
     @schedules = Schedule.where(start_time: DateTime.parse(@date).in_time_zone('Asia/Tokyo').all_day)
   end
 

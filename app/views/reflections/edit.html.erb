@@ -1,5 +1,7 @@
 <%= @date %>
 <h1>振り返り編集</h1>
 
+<h2><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h2>
+
 <%= render 'form', reflection: @reflection, btn_text: '編集' %>
 

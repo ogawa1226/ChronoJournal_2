@@ -1,0 +1,13 @@
+<% if schedule.marks.any? %>
+  <p>
+    <%= link_to schedule_marks_path(schedule), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+      <i class="fas fa-star fa-2x" area-hidden="true" style="color: yellow;"></i>
+    <% end %>
+  </p>
+  <% else %>
+  <P>
+    <%= link_to schedule_marks_path(schedule), method: :post, remote: true, data: {"turbolinks" => false} do %>
+       <i class="fas fa-star fa-2x" area-hidden="true"></i>
+    <% end %>
+  </P>
+<% end %>

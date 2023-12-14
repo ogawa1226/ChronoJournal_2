@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChronoJournal</title>
+    <title>Chrono Journal</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/b0d1a7b1c5.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,12 +13,16 @@
 
   <body>
     <header>
+      <h1 class="logo text-center">
+        Chrono Journal
+        <span class="d-block text-center sub-title">Your Journal</span>
+      </h1>
       <% if user_signed_in? %>
         <li>
           <%= link_to "カレンダー", calendars_path %>
         </li>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
         <li>

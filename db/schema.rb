@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2023_12_14_073209) do
   end
 
   create_table "marks", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "schedule_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

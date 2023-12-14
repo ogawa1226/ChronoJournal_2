@@ -1,13 +1,28 @@
 <%= form_with model: [reflection.schedule, reflection] do |f| %>
 
-  <h6>タイトル</h6>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <h6>タイトル</h6>
+    <%= f.text_field :title %>
+  </div>
 
-  <h6>写真</h6>
-  <%= f.file_field :images, accept: "image/*", multiple: true %>
+  <div class="form-group">
+    <h6>写真</h6>
+    <%= f.file_field :images, accept: "image/*", multiple: true %>
+  </div>
 
-  <h6>内容</h6>
-  <%= f.text_area :content %>
+  <% unless controller_name == "reflections" && action_name == "new" %>
+    <div class="form-group">
+      <%= f.label :images_delete do %>
+        <%= f.check_box :images_delete %>
+        画像を削除する
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <h6>内容</h6>
+    <%= f.text_area :content %>
+  </div>
 
   <h6>タグ</h6>
 

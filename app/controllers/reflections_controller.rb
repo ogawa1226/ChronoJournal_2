@@ -8,10 +8,13 @@ class ReflectionsController < ApplicationController
   end
 
   def create
-    reflection = Reflection.new(reflection_params)
-    reflection.schedule_id = params[:schedule_id]
-    reflection.save
-    redirect_to calendars_path
+    @reflection = Reflection.new(reflection_params)
+    @reflection.schedule_id = params[:schedule_id]
+    if @reflection.save
+      redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,13 +28,17 @@ class ReflectionsController < ApplicationController
   def destroy
     reflection = Reflection.find(params[:id])
     reflection.destroy
-    redirect_to calendars_path
+    redirect_to schedules_path(date: reflection.schedule.start_time.strftime("%Y-%m-%d"))
   end
 
   def update
-    reflection = Reflection.find(params[:id])
-    reflection.update(reflection_params)
-    redirect_to calendars_path
+    @reflection = Reflection.find(params[:id])
+    if @reflection.update(reflection_params)
+      @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
+      redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
+    else
+      render :edit
+    end
   end
 
   private
