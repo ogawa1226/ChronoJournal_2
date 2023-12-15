@@ -8,44 +8,8 @@
         </th>
       </tr>
     </thead>
-
-    <tbody>
-      <% @schedules.each do |schedule| %>
-        <tr>
-          <td>
-            <div id="mark_buttons_<%= schedule.id %>">
-              <%= render "marks/mark", schedule: schedule %>
-            </div>
-            <div>
-              <% if schedule.all_day %>
-                <%= schedule.start_time.strftime("%Y年%m月%d日") %> 終日
-              <% else %>
-                <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
-                〜
-                <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
-              <% end %>
-            </div>
-
-            <div class="mb-3">
-              <span class="mr-2">
-                <%= link_to schedule.title, schedule_path(schedule.id) %>
-              </span>
-
-              <span class="mr-2">
-                <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
-              </span>
-
-              <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id) %>
-            </div>
-
-            <ul>
-              <% schedule.reflections.each do |reflection| %>
-                <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
-              <% end %>
-            </ul>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
+    
+    <%= render 'list', schedules: @schedules, is_link: true %>
+    
   </table>
 </div>

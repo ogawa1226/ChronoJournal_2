@@ -1,37 +1,17 @@
 <% if @range == "Schedule" %>
-
-  <!--検索対象モデルがScheduleの時 -->
-  <h6>Schedule search for "<%= @word %>"</h6>
-
-  <thead>
-    <tr>
-      <th>日付</th>
-      <th>時間</th>
-      <th>タイトル</th>
-      <th>カテゴリー</th>
-      <th>メモ</th>
-    </tr>
-  </thead>
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            <!--検索対象モデルがScheduleの時 -->
+            <h6>Schedule search for "<%= @word %>"</h6>
+          </th>
+        </tr>
+      </thead>
+    <thead>
   
-  <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <%= schedule.day %>
-
-        <% if schedule.all_day %>
-          <%= schedule.start_time.strftime("%Y年%m月%d日") %> 終日
-        <% else %>
-          <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
-          〜
-          <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
-        <% end %>
-
-        <%= link_to schedule.title, schedule_path(schedule.id) %>
-
-        <%= schedule.category.name %>
-      </tr>
-    <% end %>
-  </tbody>
+  <%= render 'schedules/list', schedules: @schedules, is_link: true %>
 
 <% else %>
 
