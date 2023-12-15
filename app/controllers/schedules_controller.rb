@@ -37,6 +37,8 @@ class SchedulesController < ApplicationController
     schedule.destroy
     redirect_to calendars_path
   end
+  
+
 
   private
 
