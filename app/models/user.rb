@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :schedules, dependent: :destroy
   has_many :marks, dependent: :destroy
+  has_many :marked_schedules, through: :marks, source: :schedule
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |end_user|

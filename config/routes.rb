@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :calendars, only: [:index]
   resources :schedules do
-    resource :marks, only: [:create, :destroy]
+    resource :marks, only: [:create, :destroy, :show]
     collection do
       get "categories/:id/", to:"categories#show", as: :category
     end
