@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_14_073209) do
+ActiveRecord::Schema.define(version: 2023_12_15_065004) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2023_12_14_073209) do
     t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reflection_id", "tag_id"], name: "index_reflection_tags_on_reflection_id_and_tag_id", unique: true
   end
 
   create_table "reflections", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2023_12_14_073209) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
