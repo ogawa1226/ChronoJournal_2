@@ -3,7 +3,7 @@
     <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
     <h6 class="calendar-title-year">=<%= start_date.year %>年=</h6>
     <h2 class="calendar-title-month"><%= t('date.month_names')[start_date.month] %></h2>
-    <h6 class="calendar-title-year">=月を英語で表示させたい=</h6>
+    <h6 class="calendar-title-year">=<%= t('date.month_names_english')[start_date.month] %>=</h6>
     <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
   </div>
 

@@ -2,7 +2,7 @@
 
   <div class="form-group">
     <h6>タイトル</h6>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -21,11 +21,14 @@
 
   <div class="form-group">
     <h6>内容</h6>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, rows: 5, class: "form-control" %>
   </div>
 
   <h6>タグ</h6>
 
-
-  <%= f.submit btn_text %>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= f.submit btn_text, class: "btn btn-outline-secondary btn-block" %>
+    </div>
+  </div>
 <% end %>

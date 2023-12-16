@@ -1,4 +1,13 @@
-@use '~bootstrap/scss/bootstrap';
+$link-decoration: none; // リンク線を消す
+$link-hover-decoration: none; // ホバー時にリンクの線を消す
+$link-color: #F5B351; // リンク色
+$link-hover-color: #F55E51; // リンクホバー時の色
+$enable-rounded: false; // 角角
+$primary: #E87070;
+$secondary: #937878;
+$success: #E89A6F;
+
+@import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Raleway&family=Whisper&display=swap');
 @import './simple_calendar';
 
@@ -14,7 +23,7 @@ html, body {
     font-size: 20px;
 }
 
-// homes/top レイアウト 
+// homes/top レイアウト
 .title {
   display: flex;
   overflow: hidden;
@@ -73,10 +82,30 @@ html, body {
 }
 
 // .btn-outline {
-//   color: cab8d9;
+//   color: #cab8d9 !important;
 // }
 
 // .btn-custom {
-//   background-color: cab8d9;
-//   color: cab8d9;
+//   background-color: #cab8d9 !important;
+//   color: #cab8d9 !important;
 // }
+
+.blur{
+  animation-name: blurAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime{
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}

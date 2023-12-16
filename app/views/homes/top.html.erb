@@ -1,4 +1,7 @@
 <div class="container">
+  <h1 class="blur">
+    Welcome
+  </h1>
   <h1 class="title">
     <span>W</span>
     <span>e</span>
@@ -41,3 +44,16 @@
     </div>
   </div>
 </div>
+
+<script>
+  const CLASSNAME = "-visible";
+  const TIMEOUT = 1500;
+  const $target = $(".title");
+
+  setInterval(() => {
+    $target.addClass(CLASSNAME);
+    setTimeout(() => {
+      $target.removeClass(CLASSNAME);
+    }, TIMEOUT);
+  }, TIMEOUT * 2);
+</script>

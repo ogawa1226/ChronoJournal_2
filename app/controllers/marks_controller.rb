@@ -11,10 +11,10 @@ class MarksController < ApplicationController
     mark = current_user.marks.find_by(schedule_id: @schedule.id)
     mark.destroy
   end
-  
-  def show
-    @schedule = Schedule.find(params[:schedule_id])
-    @schedules = Schedule.marks
+
+  def index
+    marks = current_user.marks.pluck("schedule_id")
+    @schedules = Schedule.where(id: marks)
   end
-  
+
 end

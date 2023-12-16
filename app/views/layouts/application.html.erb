@@ -18,36 +18,36 @@
           Chrono Journal
           <span class="d-block text-center sub-title">Your Journal</span>
         </h1>
-        
-        
+
+
         <div class="navbar-nav ml-auto">
           <ul class="navbar-nav">
             <li class="nav-link text-center">
-              
+
               <% if user_signed_in? %>
-              
+
                 <%= link_to root_path do %>
                   <i class="fa-solid fa-house mr-3">トップ</i>
                 <% end %>
-              
+
                 <%= link_to calendars_path do %>
                   <i class="fa-solid fa-calendar-days mr-3 ml-3">カレンダー</i>
                 <% end %>
-              
+
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa-solid fa-right-from-bracket ml-3">ログアウト</i>
                 <% end %>
-                
+
               <% else %>
-                
+
                 <%= link_to new_user_registration_path do %>
                   <i class="fa-solid fa-user-plus mr-3">新規登録</i>
                 <% end %>
-                
+
                 <%= link_to new_user_session_path do %>
                   <i class="fa-solid fa-right-to-bracket ml-3">ログイン</i>
                 <% end %>
-                
+
               <% end %>
             </li>
           </ul>

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :calendars, only: [:index]
   resources :schedules do
-    resource :marks, only: [:create, :destroy, :show]
+    resource :marks, only: [:create, :destroy]
     collection do
+      get "/marks", to: "marks#index"
       get "categories/:id/", to:"categories#show", as: :category
     end
     resources :reflections do
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   get "/search", to: "searches#search", as: :search
-  
+
   devise_scope :user do
     post "users/guest_sign_in", to:"sessions#guest_sign_in"
   end
