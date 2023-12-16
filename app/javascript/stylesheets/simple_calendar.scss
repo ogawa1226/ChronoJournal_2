@@ -44,6 +44,14 @@
     border-left-style: solid;
     border-left-width: 1px;
   }
+  
+  .calendar-title-year {
+    text-align: center;
+  }
+  
+  .calendar-title-month {
+    text-align: center;
+  }
 
   .calendar-heading nav {
     display: inline-block;
@@ -53,15 +61,30 @@
     height: 80px;
   }
 
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+  .wday-0 a {
+    color: red;
+  }
+  .wday-1 a {
+    color: black;
+  }
+  .wday-2 a {
+    color: black;
+  }
+  .wday-3 a {
+    color: black;
+  }
+  .wday-4 a {
+    color: black;
+    
+  }
+  .wday-5 a {
+    color: black;
+  }
+  .wday-6 a {
+    color: blue;
+  }
 
-  .today {
+  .today a {
     background: #FFFFC0
   }
 
