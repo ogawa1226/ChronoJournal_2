@@ -58,18 +58,18 @@ ja:
     - 12月
     month_names_english:
     -
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-    - 7
-    - 8
-    - 9
-    - 10
-    - 11
-    - 12month
+    - JANUARY
+    - FEBRUARY
+    - MARCH
+    - APRIL
+    - MAY
+    - JUNE
+    - JULY
+    - AUGUST
+    - SEPTEMBER
+    - OCTOBER
+    - NOVEMBER
+    - DECEMBER
     order:
     - :year
     - :month

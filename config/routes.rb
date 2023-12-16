@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   end
 
   get "/search", to: "searches#search", as: :search
-
+  get "/search_tag" => "searches#search_tag"
+  
   devise_scope :user do
     post "users/guest_sign_in", to:"sessions#guest_sign_in"
   end

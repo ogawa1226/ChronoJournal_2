@@ -37,6 +37,14 @@
             <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
           <% end %>
         </ul>
+        
+          <!--タグリスト-->
+        <% tag.each do |tag| %>
+          <i class="fa-solid fa-tag"></i>
+          <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+          <%#= "(#{tag.reflection.count})" %>
+        <% end %>
+        
       </td>
     </tr>
   <% end %>

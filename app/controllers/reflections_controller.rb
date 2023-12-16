@@ -10,7 +10,9 @@ class ReflectionsController < ApplicationController
   def create
     @reflection = Reflection.new(reflection_params)
     @reflection.schedule_id = params[:schedule_id]
+    tag = params[:reflection][:name].split(',')
     if @reflection.save
+      @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :new
@@ -19,10 +21,13 @@ class ReflectionsController < ApplicationController
 
   def show
     @reflection = Reflection.find(params[:id])
+    @tag = @reflection.tags.pluck(:name).join(',')
+    @reflection_tags = @reflection.tags
   end
 
   def edit
     @reflection = Reflection.find(params[:id])
+    @tag = @reflection.tags.pluck(:name).join(',')
   end
 
   def destroy
@@ -33,12 +38,20 @@ class ReflectionsController < ApplicationController
 
   def update
     @reflection = Reflection.find(params[:id])
+    tag = params[:reflection][:name].split(',')
     if @reflection.update(reflection_params)
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
+      @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :edit
     end
+  end
+  
+  def search
+    @tags = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @reflections = @tag.reflections
   end
 
   private

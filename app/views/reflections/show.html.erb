@@ -21,6 +21,13 @@
 </div>
 
 <div>
+  <% @reflection_tags.each do |tag| %>
+  <i class="fa-solid fa-tag"></i>
+    <%= link_to tags.name,search_tag_path(tag_id: tag.id) %>
+  <% end %>
+</div>
+
+<div>
   <%= link_to "編集", edit_schedule_reflection_path(@reflection.id) %>
 </div>
 
