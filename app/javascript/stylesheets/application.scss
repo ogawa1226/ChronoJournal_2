@@ -3,9 +3,9 @@ $link-hover-decoration: none; // ホバー時にリンクの線を消す
 $link-color: #F5B351; // リンク色
 $link-hover-color: #F55E51; // リンクホバー時の色
 $enable-rounded: false; // 角角
-$primary: #E87070;
-$secondary: #937878;
-$success: #E89A6F;
+$primary: #E89A6F;
+$secondary: #E87070;
+$success: #937878;
 
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Raleway&family=Whisper&display=swap');
@@ -25,6 +25,7 @@ header {
 body {
   background: linear-gradient(#2387EB, #C5EBE6);
   // background: linear-gradient(#2387EB, #EAA182);
+
 }
 
 .logo {
