@@ -1,50 +1,69 @@
-<tbody>
-  <% schedules.each do |schedule| %>
-    <tr>
-      <td>
-        <div id="mark_buttons_<%= schedule.id %>">
-          <%= render "marks/mark", schedule: schedule %>
-        </div>
-        <div>
-          <% if schedule.all_day %>
-            <%= schedule.start_time.strftime("%Y年%m月%d日") %> 終日
-          <% else %>
-            <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
-            〜
-            <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
-          <% end %>
-        </div>
+<!--①ここから-->
+<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+<!--①ここまで-->
 
-        <div class="mb-3">
-          <span class="mr-2">
-            <%= link_to schedule.title, schedule_path(schedule.id) %>
-          </span>
 
-          <span class="mr-2">
-            <% if is_link %>
-              <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
-            <% else %>
-              <%= schedule.category.name %>
+
+        <tbody>
+          <% schedules.each do |schedule| %>
+            <tr>
+              <td>
+                <div class="d-flex d-inline">
+                  <div id="mark_buttons_<%= schedule.id %>">
+                    <%= render "marks/mark", schedule: schedule %>
+                  </div>
+                  <div class="col font-size my-auto">
+                    <% if schedule.all_day %>
+                      <%= schedule.start_time.strftime("%Y年%m月%d日") %> 終日
+                    <% else %>
+                      <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
+                      〜
+                      <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
+                    <% end %>
+                  </div>
+                </div>
+        
+                <div class="d-flex d-inline">
+        
+                    <span class="mx-2">
+                      <%= link_to schedule.title, schedule_path(schedule.id) %>
+                    </span>
+        
+                    <span class="mr-2">
+                      <% if is_link %>
+                        <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
+                      <% else %>
+                        <%= schedule.category.name %>
+                      <% end %>
+                    </span>
+        
+                    <div class="col text-right">
+                      <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id), class: "btn btn-outline-secondary btn-sm" %>
+                    </div>
+                  </div>
+                </div>
+
+<!--②ここから-->
+        </a>
+      </h5>
+    </div><!-- /.card-header -->
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+<!--②ここまで-->
+        
+        
+
+        <div class="center-block">
+          <ul>
+            <% schedule.reflections.each do |reflection| %>
+              <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
             <% end %>
-          </span>
-
-          <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id) %>
-
+          </ul>
         </div>
-
-        <ul>
-          <% schedule.reflections.each do |reflection| %>
-            <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
-          <% end %>
-        </ul>
-        
-          <!--タグリスト-->
-        <% tag.each do |tag| %>
-          <i class="fa-solid fa-tag"></i>
-          <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
-          <%#= "(#{tag.reflection.count})" %>
-        <% end %>
-        
       </td>
     </tr>
   <% end %>

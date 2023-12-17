@@ -1,10 +1,24 @@
-<div class="container">
+<div class="container my-5">
+
+  <!--タグリスト-->
+<% tag.each do |tag| %>
+  <i class="fa-solid fa-tag"></i>
+  <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+  <%#= "(#{tag.reflection.count})" %>
+<% end %>
+
+
+
   <table class="table table-bordered">
     <thead>
       <tr>
         <th>
-          <%= @date %>
-          <%= link_to '追加', new_schedule_path(date: @date) %>
+          <div class="d-flex d-inline">
+            <h4><%= @date %></h4>
+            <div class="col text-right">
+              <%= link_to '追加', new_schedule_path(date: @date), class: "btn btn-outline-secondary" %>
+            </div>
+          </div>
         </th>
       </tr>
     </thead>
