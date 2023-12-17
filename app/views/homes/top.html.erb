@@ -1,53 +1,11 @@
 <div class="container">
   <h1 class="blur">
-    Welcome
+    Welcome to ChronoJournal 
   </h1>
-  <h1 class="title">
-    <span>W</span>
-    <span>e</span>
-    <span>l</span>
-    <span>c</span>
-    <span>o</span>
-    <span>m</span>
-    <span>e</span>
-    <span>&nbsp;</span>
-    <span>t</span>
-    <span>o</span>
-    <span>&nbsp;</span>
-    <span>C</span>
-    <span>h</span>
-    <span>r</span>
-    <span>o</span>
-    <span>n</span>
-    <span>o</span>
-    <span>J</span>
-    <span>o</span>
-    <span>u</span>
-    <span>r</span>
-    <span>n</span>
-    <span>a</span>
-    <span>l</span>
-    <span>N</span>
-  </h1>
-
-
-
-  <div class="btn-wrapper col-10 mx-auto">
-    <div class="row">
-      <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-outline-success btn-block mb-3 btn-block " %>
-    </div>
-    <div class="row">
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary btn-block mb-3 sign_in" %>
-    </div>
-    <div class="row">
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, class: "btn btn-outline-secondary btn-block mb-3 sign_in", method: :post %>
-    </div>
-  </div>
-</div>
 
 <script>
   const CLASSNAME = "-visible";
-  const TIMEOUT = 1500;
+  const TIMEOUT = 2000;
   const $target = $(".title");
 
   setInterval(() => {
@@ -55,5 +13,5 @@
     setTimeout(() => {
       $target.removeClass(CLASSNAME);
     }, TIMEOUT);
-  }, TIMEOUT * 2);
+  }, TIMEOUT * 20);
 </script>

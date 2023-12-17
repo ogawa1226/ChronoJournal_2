@@ -14,6 +14,9 @@ $success: #E89A6F;
 html, body {
     font-family: 'Raleway', 'M PLUS Rounded 1c', sans-serif;
 }
+.header {
+    background-color: #626AEB;
+}
 
 .logo {
     font-family: 'Whisper', cursive;
@@ -83,8 +86,10 @@ html, body {
 
 .blur{
   animation-name: blurAnime;
-  animation-duration: 1s;
+  animation-duration: 5s;
   animation-fill-mode: forwards;
+  color: #cab8d9;
+  stroke: red;
 }
 
 @keyframes blurAnime{
