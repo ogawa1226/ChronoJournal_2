@@ -1,17 +1,25 @@
 <div class="container">
-  <%= render "reflections/list" %>
-  <%= link_to marks_schedules_path do %>
-    <i class="fa-solid fa-star fa-2x" area-hidden="true" style="color: yellow;"></i>
-  <% end %>
-  <%= render "searches/form" %>
+  <div class="row mt-3">
+    <!--<div class="float-right">-->
 
-    <%= month_calendar(events: @schedules, start_attribute: :start_time, end_attribute: :start_time) do |date, schedules| %>
-      <%= link_to date.day, schedules_path(date: [date.year, date.month, date.day].join("-")) %>
-      <% schedules.each do |schedule| %>
-        <div>
-          <%= schedule.title %>
-        </div>
+      <%= link_to marks_schedules_path do %>
+        <i class="fa-solid fa-star fa-2x" area-hidden="true" style="color: yellow;"></i>
       <% end %>
-    <% end %>
 
+      <%= render "searches/form" %>
+    <!--</div>-->
+  </div>
+
+  <div class="mb-5">
+      <%= month_calendar(events: @schedules, start_attribute: :start_time, end_attribute: :start_time) do |date, schedules| %>
+        <%= link_to date.day, schedules_path(date: [date.year, date.month, date.day].join("-")) %>
+
+        <% schedules.each do |schedule| %>
+          <div>
+            <%= schedule.title %>
+          </div>
+        <% end %>
+
+      <% end %>
+  </div>
 </div>
