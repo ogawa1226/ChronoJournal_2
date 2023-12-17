@@ -12,18 +12,27 @@ $success: #E89A6F;
 @import './simple_calendar';
 
 html, body {
-    font-family: 'Raleway', 'M PLUS Rounded 1c', sans-serif;
+  font-family: 'Raleway', 'M PLUS Rounded 1c', sans-serif;
+  height: 100%;
 }
-.header {
-    background-color: #626AEB;
+
+header {
+  background-color: #626AEB;
+}
+
+
+
+body {
+  background: linear-gradient(#2387EB, #C5EBE6);
+  // background: linear-gradient(#2387EB, #EAA182);
 }
 
 .logo {
-    font-family: 'Whisper', cursive;
+  font-family: 'Whisper', cursive;
 }
 
 .sub-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 // homes/top レイアウト

@@ -10,4 +10,9 @@ class SearchesController < ApplicationController
       @reflections = Reflection.looks(params[:word])
     end
   end
+  
+  def search_tag
+    @reflections = Reflection.where(tag_id: params[:id])
+    @tag = Tag.find(params[:id])
+  end
 end

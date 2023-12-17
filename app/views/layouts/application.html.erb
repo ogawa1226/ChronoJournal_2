@@ -47,8 +47,8 @@
                 <%= link_to new_user_session_path do %>
                   <i class="fa-solid fa-right-to-bracket ml-3">ログイン</i>
                 <% end %>
-                
-                <%= link_to users_guest_sign_in_path do %>
+
+                <%= link_to users_guest_sign_in_path, method: :post do %>
                   <i class="fa-solid fa-user ml-3">ゲストログイン</i>
                 <% end %>
 

@@ -10,9 +10,9 @@ class ReflectionsController < ApplicationController
   def create
     @reflection = Reflection.new(reflection_params)
     @reflection.schedule_id = params[:schedule_id]
-    tag = params[:reflection][:name].split(',')
+    tag_list = params[:reflection][:tag].split(',')
     if @reflection.save
-      @reflection.save_tags(params[:reflection][:tag])
+      @reflection.save_tags(tag_list)
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :new
@@ -47,7 +47,7 @@ class ReflectionsController < ApplicationController
       render :edit
     end
   end
-  
+
   def search
     @tags = Tag.all
     @tag = Tag.find(params[:tag_id])
