@@ -12,7 +12,7 @@ class SearchesController < ApplicationController
   end
 
   def search_tag
-    # @reflections = Reflection.where(tag_id: params[:id])
+    @reflections = Reflection.where(tag_id: params[:id])
     @tag = Tag.find(params[:tag_id])
   end
 end

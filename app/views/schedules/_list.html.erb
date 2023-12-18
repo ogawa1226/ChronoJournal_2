@@ -1,9 +1,9 @@
 <!--①ここから-->
-<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingOne">
-      <h5 class="mb-0">
-        <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+<!--<div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">-->
+<!--  <div class="card">-->
+<!--    <div class="card-header" role="tab" id="headingOne">-->
+<!--      <h5 class="mb-0">-->
+<!--        <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">-->
 <!--①ここまで-->
 
 
@@ -26,13 +26,13 @@
                     <% end %>
                   </div>
                 </div>
-        
+
                 <div class="d-flex d-inline">
-        
+
                     <span class="mx-2">
                       <%= link_to schedule.title, schedule_path(schedule.id) %>
                     </span>
-        
+
                     <span class="mr-2">
                       <% if is_link %>
                         <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
@@ -40,7 +40,7 @@
                         <%= schedule.category.name %>
                       <% end %>
                     </span>
-        
+
                     <div class="col text-right">
                       <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id), class: "btn btn-outline-secondary btn-sm" %>
                     </div>
@@ -48,23 +48,29 @@
                 </div>
 
 <!--②ここから-->
-        </a>
-      </h5>
-    </div><!-- /.card-header -->
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
+    <!--    </a>-->
+    <!--  </h5>-->
+    <!--</div><!-- /.card-header -->
+    <!--<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">-->
+    <!--  <div class="card-body">-->
 <!--②ここまで-->
-        
-        
 
-        <div class="center-block">
-          <ul>
-            <% schedule.reflections.each do |reflection| %>
-              <li><%= link_to reflection.title, schedule_reflection_path(schedule_id: schedule.id, id: reflection.id) %></li>
-            <% end %>
-          </ul>
-        </div>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
+
+
+                <div class="center-block">
+                  <ul>
+                    <% schedule.reflections.each do |reflection| %>
+                      <li><%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %></li>
+                    <% end %>
+                    
+                    <%# tag.reflections.each do |reflection| %>
+                      <!--<i class="fa-solid fa-tag"></i>-->
+                      <%#= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %>
+                    <%# end %>
+                    
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>

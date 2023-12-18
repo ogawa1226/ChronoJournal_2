@@ -14,9 +14,10 @@
   </table>
 </div>
       <ul>
-    <% @tag.reflections.each do |reflection| %>
+    　<% @tag.reflections.each do |reflection| %>
       <li>
         <%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %>
+        
         <ul>
           <li>
             <%= reflection.schedule.start_time.strftime("%Y%m%d") %>
