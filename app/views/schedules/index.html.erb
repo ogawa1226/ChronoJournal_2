@@ -1,7 +1,7 @@
 <div class="container my-5">
 
   <!--タグリスト-->
-<% tag.each do |tag| %>
+<% Tag.all.each do |tag| %>
   <i class="fa-solid fa-tag"></i>
   <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
   <%#= "(#{tag.reflection.count})" %>

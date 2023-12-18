@@ -1,4 +1,4 @@
-  
+
 <div class="container">
   <table class="table table-bordered">
     <thead>
@@ -9,7 +9,19 @@
       </tr>
     </thead>
 
-    <%= render 'schedules/list', schedules: @schedules, is_link: false %>
+    <%#= render 'schedules/list', schedules: @schedules, is_link: false %>
 
   </table>
 </div>
+      <ul>
+    <% @tag.reflections.each do |reflection| %>
+      <li>
+        <%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %>
+        <ul>
+          <li>
+            <%= reflection.schedule.start_time.strftime("%Y%m%d") %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+    </ul>

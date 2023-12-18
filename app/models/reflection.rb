@@ -22,6 +22,7 @@ class Reflection < ApplicationRecord
   end
 
   def save_tags(tag_list)
+    
     current_tags = self.tags.pluck(:name)
     old_tags = current_tags - tag_list
     new_tags = tag_list - current_tags

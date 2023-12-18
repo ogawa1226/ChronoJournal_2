@@ -38,10 +38,10 @@ class ReflectionsController < ApplicationController
 
   def update
     @reflection = Reflection.find(params[:id])
-    tag = params[:reflection][:name].split(',')
+    tag_list = params[:reflection][:tag].split(',')
     if @reflection.update(reflection_params)
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
-      @reflection.save_tags(params[:reflection][:tag])
+      @reflection.save_tags(tag_list)
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :edit
