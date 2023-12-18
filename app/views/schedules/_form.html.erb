@@ -1,25 +1,46 @@
-<%= form_with model: schedule, local: true do |f| %>
-  <%= f.hidden_field :day, :value => date %>
-  <h6>タイトル</h6>
-  <%= f.text_field :title %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
 
-  <h6>カテゴリー</h6>
-  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "選択して下さい" %>
+      <%= form_with model: schedule, local: true do |f| %>
+        <%= f.hidden_field :day, :value => date %>
 
-  <h6>開始時間</h6>
-  <%#= f.datetime_select :start_time, {default: DateTime.parse(@date)} %>
-  <%= f.datetime_select :start_time, { default: @date.present? ? DateTime.parse(@date) : Time.current } %>
+        <div class="field">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
 
-  <h6>終了時間</h6>
-  <%#= f.datetime_select :end_time, {default: DateTime.parse(@date)} %>
-  <%= f.datetime_select :end_time, { default: @date.present? ? DateTime.parse(@date) : Time.current } %>
-
-  <h6>終日</h6>
-  <%= f.check_box :all_day %>
-
-  <h6>メモ</h6>
-  <%= f.text_area :memo %>
-
-  <%= f.submit btn_text %>
-
-<% end %>
+        <div class="field mt-3">
+          <%= f.label :category_id, "カテゴリー" %>
+          <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: "選択して下さい" %>
+        </div>
+        
+        <div class="field mt-3">
+          <%= f.label :start_time, "開始時間" %>
+          <%= f.datetime_select :start_time, { default: @date.present? ? DateTime.parse(@date) : Time.current } %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :start_time, "終了時間" %>
+          <%= f.datetime_select :end_time, { default: @date.present? ? DateTime.parse(@date) : Time.current } %>
+        </div>
+        
+        <div class="mt-2">
+          <%= f.check_box :all_day %>終日
+        </div>
+        
+        <div class="field mt-3">
+          <%= f.label :start_time, "メモ" %>
+          <%= f.text_area :memo, class: "form-control form-control-lg" %>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <%= f.submit btn_text, class: "btn btn-outline-secondary btn-block my-3" %>
+          </div>
+        </div>
+        
+      <% end %>
+    </div>
+  </div>
+</div>
