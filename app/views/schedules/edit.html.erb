@@ -1,4 +1,15 @@
-<%= @date %>
-<h1>スケジュール編集</h1>
-
-<%= render 'form', schedule: @schedule, btn_text: '更新', date: @schedule.day %>
+<div class="container">
+  <div class="d-flex d-inline mt-4">
+      
+      <%= @date %>
+      <div class="col-md-6 mx-auto">
+        <h2>
+          <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
+          スケジュール編集
+          <i class="fa-solid fa-seedling fa-flip-horizontal", style="color: #60EAB1;"></i>
+        </h2>
+      </div>
+      
+  </div>
+    <%= render 'form', schedule: @schedule, btn_text: '更新', date: @schedule.day %>
+</div>
