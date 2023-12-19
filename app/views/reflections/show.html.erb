@@ -1,38 +1,51 @@
 <!--後に消すかも-->
-<h1>振り返り詳細</h1>
+<!--<h1>振り返り詳細</h1>-->
 <!--ここまで-->
 
-<h2><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h2>
+<div class="container mt-3">
 
-<div>
-  <%= @reflection.title %>
-</div>
+  <h2 class="mt-5 text-center">
+    <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
+    <%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %>
+    <i class="fa-solid fa-seedling fa-flip-horizontal", style="color: #60EAB1;"></i>
+  </h2>
 
-<div>
-  <%= simple_format(@reflection.content, class: "m-0") %>
-</div>
+  <h3 class="text-center mt-3">
+    <%= @reflection.title %>
+  </h3>
 
-<div>
-  <% if @reflection.images.attached? %>
-    <% @reflection.get_images.each do |image| %>
-      <%= image_tag image %>
+  <h3 class="text-center mt-4">
+    <%= simple_format(@reflection.content, class: "m-0") %>
+  </h3>
+
+  <h3 class="text-center mt-3">
+    <% if @reflection.images.attached? %>
+      <% @reflection.get_images.each do |image| %>
+        <%= image_tag image %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </h3>
 
-<div>
-  <% @reflection_tags.each do |tag| %>
-  <i class="fa-solid fa-tag"></i>
-    <%= link_to tag.name, search_tag_path(tag_id: tag.id) %>
-  <% end %>
-</div>
+  <h3 class="text-center mt-3 mb-5">
+    <% @reflection_tags.each do |tag| %>
+    <i class="fa-solid fa-tag"></i>
+      <%= link_to tag.name, search_tag_path(tag_id: tag.id) %>
+    <% end %>
+  </h3>
 
-<div>
-  <%= link_to "編集", edit_schedule_reflection_path(@reflection.id) %>
-</div>
+  <div class="row mx-auto">
+    <h3 class="col-md-4">
+      <%= link_to "戻る", schedules_path, class: "btn btn-outline-secondary btn-block" %>
+    </h3>
+    <h3 class="col-md-4">
+      <%= link_to "編集", edit_schedule_reflection_path(@reflection.id), class: "btn btn-outline-secondary btn-block" %>
+    </h3>
 
-<div>
-  <%= link_to "削除", schedule_reflection_path(@reflection.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <h3 class="col-md-4">
+      <%= link_to "削除", schedule_reflection_path(@reflection.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-secondary btn-block" %>
+    </h3>
+  </div>
+
 </div>
 
 
