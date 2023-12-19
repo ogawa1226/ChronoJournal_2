@@ -1,11 +1,20 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
+    
+    <h4><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h4>
+    
     <div class="col-md-6 mx-auto">
-      <h1>振り返り新規投稿</h1>
-
-      <h2><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h2>
-
-      <%= render partial: 'form', locals: {reflection: @reflection, btn_text: '投稿'} %>
+      <h2>
+        <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
+        振り返り新規投稿
+        <i class="fa-solid fa-seedling fa-flip-horizontal", style="color: #60EAB1;"></i>
+      </h2>
     </div>
   </div>
+  
+  <%= render partial: 'form', locals: {reflection: @reflection, btn_text: '投稿'} %>
+  
 </div>
+
+
+
