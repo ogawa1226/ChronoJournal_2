@@ -12,7 +12,11 @@ class SearchesController < ApplicationController
   end
 
   def search_tag
-    @reflections = Reflection.where(tag_id: params[:id])
+    # タグを取得
     @tag = Tag.find(params[:tag_id])
+    # タグに紐づいた自分自身の振り返りを取得して、そのスケジュールIDを配列で取得し、重複を取り除く(uniq)
+    reflections = @tag.reflections.joins(:schedule).where(schedule: {user_id: current_user.id}).pluck(:schedule_id).uniq
+    # スケジュールから、振り返りに使われているスケジュールIDを配列で渡す(SQL: WHERE INで検索している)
+    @schedules = Schedule.where(id: reflections)
   end
 end

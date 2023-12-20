@@ -1,5 +1,15 @@
 
 <div class="container">
+
+  <!--<div class="row">-->
+  <!--  <div class="col-md-6 d-flex justify-content-center align-items-center">-->
+  <!--    紹介文-->
+  <!--  </div>-->
+  <!--  <div class="col-md-6">-->
+  <!--    <%#= image_tag "undraw_undraw_undraw_selectoption_y9cm_mx7w_-2-_vjsk.svg", class: "img-fluid d-block mx-auto", style: "height: 150px;" %>-->
+  <!--  </div>-->
+  <!--</div>-->
+
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -8,21 +18,7 @@
         </th>
       </tr>
     </thead>
-
-    <%#= render 'schedules/list', schedules: @schedules, is_link: false %>
+    <%= render 'schedules/list', schedules: @schedules, is_link: false %>
 
   </table>
 </div>
-      <ul>
-    　<% @tag.reflections.each do |reflection| %>
-      <li>
-        <%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %>
-        
-        <ul>
-          <li>
-            <%= reflection.schedule.start_time.strftime("%Y%m%d") %>
-          </li>
-        </ul>
-      </li>
-    <% end %>
-    </ul>

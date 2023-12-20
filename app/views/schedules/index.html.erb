@@ -1,9 +1,10 @@
 <div class="container my-5">
 
   <!--タグリスト-->
-<% Tag.all.each do |tag| %>
+<% @tags.sort_by {|x| x[0]}.each do |tag_name, count| %>
+  <% tag_id = Tag.find_by(name: tag_name) %>
   <i class="fa-solid fa-tag"></i>
-  <%= link_to "#{tag.name} ( #{tag.reflections.count} )", search_tag_path(tag_id: tag.id) %>
+  <%= link_to "#{tag_name} (#{count})", search_tag_path(tag_id: tag_id) %>
 <% end %>
 
 

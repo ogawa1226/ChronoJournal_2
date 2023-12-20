@@ -4,6 +4,7 @@ class Schedule < ApplicationRecord
   belongs_to :category
   has_many :marks
   has_many :reflections, dependent: :destroy
+
   
   def self.looks(word)
     @schedule = Schedule.where("title LIKE?", "%#{word}%")

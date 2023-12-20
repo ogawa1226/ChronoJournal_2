@@ -1,10 +1,10 @@
 class CalendarsController < ApplicationController
+  before_action :set_beginning_of_week
+
   def index
     @date = params[:date]
-    @schedules = Schedule.all
+    @schedules = current_user.schedules
   end
-
-  before_action :set_beginning_of_week
 
   private
 

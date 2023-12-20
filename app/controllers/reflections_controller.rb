@@ -10,9 +10,9 @@ class ReflectionsController < ApplicationController
   def create
     @reflection = Reflection.new(reflection_params)
     @reflection.schedule_id = params[:schedule_id]
-    tag_list = params[:reflection][:tag].split(',')
+    # tag_list = params[:reflection][:tag].split(',')
     if @reflection.save
-      @reflection.save_tags(tag_list)
+      @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :new
@@ -21,13 +21,13 @@ class ReflectionsController < ApplicationController
 
   def show
     @reflection = Reflection.find(params[:id])
-    @tag = @reflection.tags.pluck(:name).join(',')
+    @tag = @reflection.tags.pluck(:name)
     @reflection_tags = @reflection.tags
   end
 
   def edit
     @reflection = Reflection.find(params[:id])
-    @tag = @reflection.tags.pluck(:name).join(',')
+    @tag = @reflection.tags.pluck(:name)
   end
 
   def destroy
@@ -38,10 +38,10 @@ class ReflectionsController < ApplicationController
 
   def update
     @reflection = Reflection.find(params[:id])
-    tag_list = params[:reflection][:tag].split(',')
+    # tag_list = params[:reflection][:tag].split(',')
     if @reflection.update(reflection_params)
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
-      @reflection.save_tags(tag_list)
+      @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
       render :edit
