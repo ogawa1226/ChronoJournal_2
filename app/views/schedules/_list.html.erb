@@ -28,23 +28,24 @@
                 </div>
 
                 <div class="d-flex d-inline">
-
-                    <span class="mx-2">
+                  <span class="col mx-auto">
+                    
                       <%= link_to schedule.title, schedule_path(schedule.id) %>
-                    </span>
+                   
 
-                    <span class="mr-2">
+                    
                       <% if is_link %>
                         <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
                       <% else %>
                         <%= schedule.category.name %>
                       <% end %>
-                    </span>
-
-                    <div class="col text-right">
-                      <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id), class: "btn btn-outline-secondary btn-sm" %>
-                    </div>
+                    
+                  </span>
+                  
+                  <div class="col text-right">
+                    <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id), class: "btn btn-outline-secondary btn-sm" %>
                   </div>
+                  
                 </div>
 
 <!--②ここから-->
@@ -63,11 +64,7 @@
                       <li><%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %></li>
                     <% end %>
                     
-                    <%# tag.reflections.each do |reflection| %>
-                      <!--<i class="fa-solid fa-tag"></i>-->
-                      <%#= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %>
-                    <%# end %>
-                    
+
                   </ul>
                 </div>
               </td>
