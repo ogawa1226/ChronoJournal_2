@@ -6,9 +6,9 @@
       <h6 class="calendar-title-year">=<%= start_date.year %>年=</h6>
 
       <h2 class="calendar-title-month">
-        <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view %>
+        <%= link_to t('simple_calendar.previous', default: '<<'), calendar.url_for_previous_view, class: "mr-5" %>
         <%= t('date.month_names')[start_date.month] %>
-        <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view %>
+        <%= link_to t('simple_calendar.next', default: '>>'), calendar.url_for_next_view, class: "ml-5" %>
       </h2>
 
       <h6 class="calendar-title-year">=<%= t('date.month_names_english')[start_date.month] %>=</h6>
