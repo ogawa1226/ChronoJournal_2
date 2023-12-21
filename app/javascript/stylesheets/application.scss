@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
   height: 100%;
   background: linear-gradient(#2387EB, #C5EBE6);
-  // background: linear-gradient(#2387EB, #EAA182);
+
 }
 
 .logo {
@@ -94,8 +94,9 @@ body {
 
 .blur{
   animation-name: blurAnime;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-fill-mode: forwards;
+  // color: #626AEB;
   color: #cab8d9;
   stroke: red;
 }

@@ -1,7 +1,37 @@
 <div class="container">
-  <h1 class="blur">
+<%#= image_tag "undraw_welcome_cats_thqn.svg", class: "img-fluid d-block mx-auto", style: "height: 300px;" %>
+
+  <h1 class="blur mt-3" >
     Welcome to ChronoJournal 
   </h1>
+  
+  <div class="row mt-5">
+    <h2 class="col-md-6 d-flex justify-content-center align-items-center">
+      紹介文
+    </h2>
+    <div class="col-md-6">
+      <%= image_tag "undraw_calendar_re_ki49.svg", class: "img-fluid d-block mx-auto", style: "height: 350px;" %>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <h2 class="col-md-6 order-0 order-md-1 d-flex justify-content-center align-items-center">
+      紹介文
+    </h2>
+    <div class="col-md-6">
+      <%= image_tag "undraw_email_campaign_re_m6k5.svg", class: "img-fluid d-block mx-auto", style: "height: 350px;" %>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <h2 class="col-md-6 d-flex justify-content-center align-items-center">
+      紹介文
+    </h2>
+    <div class="col-md-6">
+      <%= image_tag "undraw_notebook_re_id0r.svg", class: "img-fluid d-block mx-auto", style: "height: 350px;" %>
+    </div>
+  </div>
+  
 
 <script>
   const CLASSNAME = "-visible";
@@ -13,5 +43,6 @@
     setTimeout(() => {
       $target.removeClass(CLASSNAME);
     }, TIMEOUT);
-  }, TIMEOUT * 20);
+  }, TIMEOUT * 10);
 </script>
+</div>
