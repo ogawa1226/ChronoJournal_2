@@ -1,29 +1,41 @@
 <div class="container my-5">
-
-  <!--タグリスト-->
-<% @tags.sort_by {|x| x[0]}.each do |tag_name, count| %>
-  <% tag_id = Tag.find_by(name: tag_name) %>
-  <i class="fa-solid fa-tag"></i>
-  <%= link_to "#{tag_name} (#{count})", search_tag_path(tag_id: tag_id) %>
-<% end %>
-
-
-
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>
-          <div class="d-flex d-inline">
-            <h4><%= @date %></h4>
-            <div class="col text-right">
-              <%= link_to '追加', new_schedule_path(date: @date), class: "btn btn-outline-secondary" %>
-            </div>
-          </div>
-        </th>
-      </tr>
-    </thead>
-
-    <%= render 'list', schedules: @schedules, is_link: true %>
-
-  </table>
+  <div class="row">
+    
+    <div class="col-md-10">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <div class="d-flex d-inline">
+                <h4><%= @date %></h4>
+                <div class="col text-right">
+                  <%= link_to '追加', new_schedule_path(date: @date), class: "btn btn-outline-secondary" %>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <%= render 'list', schedules: @schedules, is_link: true %>
+        </thead>
+      </table>
+    </div>
+    
+    
+    
+    <div class="col-md-2">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <!--タグリスト-->
+              <% @tags.sort_by {|x| x[0]}.each do |tag_name, count| %>
+                <% tag_id = Tag.find_by(name: tag_name) %>
+                <i class="fa-solid fa-tag"></i>
+                <%= link_to "#{tag_name} (#{count})", search_tag_path(tag_id: tag_id) %>
+              <% end %>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
 </div>
