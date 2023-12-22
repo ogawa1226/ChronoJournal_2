@@ -25,19 +25,24 @@
     </h3>
 
     <h3 class="text-center mt-3 my-5">
-      <%= @schedule.memo %>
+      <%= simple_format(@schedule.memo, class: "m-0") %>
     </h3>
-
-    <div class="row mx-auto">
-      <h3 class="col-md-4">
-        <%= link_to "戻る", schedules_path, class: "btn btn-outline-secondary btn-block" %>
-      </h3>
-      <h3 class="col-md-4">
-        <%= link_to "編集", edit_schedule_path(@schedule.id), class: "btn btn-outline-secondary btn-block" %>
-      </h3>
-      <h3 class="col-md-4">
-        <%= link_to "削除", schedule_path(@schedule.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-secondary btn-block" %>
-      </h3>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 mx-auto">
+          <div class="d-flex d-inline"> 
+            <div class="col-md-3 ml-4">
+              <%= link_to "戻る", :back, class: "btn btn-outline-secondary btn-block" %>
+            </div>
+            <div class="col-md-3 mx-auto">
+              <%= link_to "編集", edit_schedule_path(@schedule.id), class: "btn btn-outline-secondary btn-block" %>
+            </div>
+            <div class="col-md-3 mr-4">
+              <%= link_to "削除", schedule_path(@schedule.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-secondary btn-block" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
 </div>
