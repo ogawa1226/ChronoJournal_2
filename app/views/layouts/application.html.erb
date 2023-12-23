@@ -31,11 +31,15 @@
               <% if user_signed_in? %>
 
                 <%= link_to root_path do %>
-                  <i class="fa-solid fa-house mr-3">トップ</i>
+                  <i class="fa-solid fa-house mr-3 ml-5">トップ</i>
                 <% end %>
 
                 <%= link_to calendars_path do %>
                   <i class="fa-solid fa-calendar-days mr-3 ml-3">カレンダー</i>
+                <% end %>
+
+                <%= link_to schedules_path do %>
+                  <i class="fa-regular fa-clock mr-3 ml-3">今日の予定</i>
                 <% end %>
 
                 <%= link_to destroy_user_session_path, method: :delete do %>
@@ -60,8 +64,10 @@
             </li>
           </ul>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
     <%= yield %>
+    <footer></footer>
   </body>
+  
 </html>
