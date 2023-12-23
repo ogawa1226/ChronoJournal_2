@@ -1,44 +1,70 @@
 <% if @range == "Schedule" %>
-  <div class="container">
+  <div class="container my-5">
     <table class="table table-bordered">
       <thead>
         <tr>
           <th>
             <!--検索対象モデルがScheduleの時 -->
-            <h6>Schedule search for "<%= @word %>"</h6>
+            <h6>スケジュール検索"<%= @word %>"</h6>
           </th>
         </tr>
       </thead>
-    <thead>
-  
-  <%= render 'schedules/list', schedules: @schedules, is_link: true %>
-
+      <%= render 'schedules/list', schedules: @schedules, is_link: true %>
+    </table>
+  </div>
 <% else %>
 
   <!--検索対象モデルがScheduleではない時(= 検索対象モデルがReflectionの時) -->
-  <h6>Reflection search for "<%= @word %>"</h6>
-  
-  <thead>
-    <tr>
-      <th>日付</th>
-      <th>タイトル</th>
-      <th>内容</th>
-      <th>タグ</th>
-    </tr>
-  </thead>
   
   
-  <tbody>
-    <% @reflections.each do |reflection| %>
-      <tr>
-        <%= reflection.schedule.day %>
-
-        <%= link_to reflection.title, schedule_reflection_path(schedule_id: reflection.schedule_id, id: reflection.id) %>
-
-        <%= reflection.content %>
-
-        <h6>タグ</h6>
-      </tr>
-    <% end %>
-  </tbody>
+  <div class="container my-5">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>振り返り検索"<%= @word %>"</br></br>
+            <div class="row text-center">
+              <div class="col-md-1">
+                日付
+              </div>
+              <div class="col-md-2">
+                タイトル
+              </div>
+              <div class="col-md-6">
+                内容
+              </div>
+              <div class="col-md-3">
+                タグ
+              </div>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reflections.each do |reflection| %>
+          <tr>
+            <td>
+              <div class="row text-center">
+                <div class="col-md-1">
+                  <%= reflection.schedule.day %>
+                </div>
+                <div class="col-md-2">
+                  <%= link_to reflection.title, schedule_reflection_path(schedule_id: reflection.schedule_id, id: reflection.id) %>
+                </div>
+                <div class="col-md-6">
+                  <%= reflection.content.truncate(60) %>
+                </div>
+                <div class="col-md-3">
+                  tagがうまく表示されないよ~~~
+                  <!--<%# @tags.each do |tag| %>-->
+                  <!--<i class="fa-solid fa-tag"></i>-->
+                  <!--  <%#= link_to tag.name, search_tag_path(tag_id: tag.id) %>-->
+                  <!--<%# end %>-->
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 <% end %>

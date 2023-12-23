@@ -5,13 +5,15 @@ class SearchesController < ApplicationController
     @word = params[:word]
 
     if @range == "Schedule"
-      @schedules = Schedule.looks(params[:word])
+      @schedules = current_user.schedules.looks(params[:word])
     else
       @reflections = Reflection.looks(params[:word])
+      # reflection = current_user.reflections.find_by(schedule_id: @reflections.id)
     end
   end
 
   def search_tag
+    @tags = Tag.all
     # タグを取得
     @tag = Tag.find(params[:tag_id])
     # タグに紐づいた自分自身の振り返りを取得して、そのスケジュールIDを配列で取得し、重複を取り除く(uniq)
