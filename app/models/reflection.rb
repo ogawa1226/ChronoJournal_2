@@ -12,7 +12,7 @@ class Reflection < ApplicationRecord
   # mapメソッドを使って各イメージに対してリサイズした新しい画像を返す
   def get_images
     images.map do |image|
-      image.variant(resize_to_limit: [100, 100]).processed
+      image.variant(resize_to_limit: [400, 400]).processed
     end
   end
 

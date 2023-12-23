@@ -17,7 +17,9 @@
   <h3 class="text-center mt-3">
     <% if @reflection.images.attached? %>
       <% @reflection.get_images.each do |image| %>
-        <%= image_tag image %>
+        <%= link_to image, "data-lightbox": image do %>
+          <%= image_tag image, size: "200x200" %>
+        <% end %>
       <% end %>
     <% end %>
   </h3>
