@@ -1,9 +1,8 @@
 <div class="container mt-4">
   <div class="row">
-
-    <h4><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h4>
     
-    <div class="col-md-6 mx-auto">
+    <h4><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h4>
+    <div class="col-md-5 mx-auto">
       <h2>
         <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
         振り返り編集
@@ -11,7 +10,5 @@
       </h2>
     </div>
   </div>
-
     <%= render 'form', reflection: @reflection, btn_text: '編集' %>
-    
 </div>
