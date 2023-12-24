@@ -11,6 +11,12 @@ class Reflection < ApplicationRecord
   validates :images, limit: { min: 0, max: 5 },
                       content_type: [:png, :jpg, :jpeg]
 
+  
+  # def tags
+  #   author_ids = reflection_tags.map(&:tag_id)
+  #   errors.add(:base, 'タグが重複しています。') if author_ids.uniq.length != author_ids.length
+  # end
+
   # mapメソッドを使って各イメージに対してリサイズした新しい画像を返す
   def get_images
     images.map do |image|

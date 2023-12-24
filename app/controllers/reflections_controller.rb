@@ -58,7 +58,7 @@ class ReflectionsController < ApplicationController
     @tag = Tag.find(params[:tag_id])
     @reflections = @tag.reflections
   end
-
+  
   private
 
   def reflection_params
