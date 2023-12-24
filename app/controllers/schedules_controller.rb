@@ -24,9 +24,6 @@ class SchedulesController < ApplicationController
 
     # pp "-----------------------"
     # pp @tags
-
-
-
   end
 
   def new
@@ -37,7 +34,9 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
-     @schedule.save
+    # if 
+    @schedule.save
+      # flash[:notice] = "投稿に成功しました。"
       redirect_to calendars_path
     # else
     #   @schedules = Schedule.all

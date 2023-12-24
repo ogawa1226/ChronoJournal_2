@@ -12,9 +12,11 @@ class ReflectionsController < ApplicationController
     @reflection.schedule_id = params[:schedule_id]
     # tag_list = params[:reflection][:tag].split(',')
     if @reflection.save
+      flash[:notice] = "投稿に成功しました。"
       @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
+      flash[:notice] = "投稿に失敗しました。"
       render :new
     end
   end
@@ -33,6 +35,7 @@ class ReflectionsController < ApplicationController
   def destroy
     reflection = Reflection.find(params[:id])
     reflection.destroy
+    flash[:notice] = "削除されました。"
     redirect_to schedules_path(date: reflection.schedule.start_time.strftime("%Y-%m-%d"))
   end
 
@@ -40,10 +43,12 @@ class ReflectionsController < ApplicationController
     @reflection = Reflection.find(params[:id])
     # tag_list = params[:reflection][:tag].split(',')
     if @reflection.update(reflection_params)
+      flash[:notice] = "編集に成功しました。"
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
       @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
+      flash[:notice] = "編集に失敗しました。"
       render :edit
     end
   end
