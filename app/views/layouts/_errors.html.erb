@@ -1,0 +1,37 @@
+  <!--<%# if obj.errors.any? %>-->
+  <!--  <div id="error_explanation">-->
+  <!--    <h3><%#= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>-->
+  <!--    <ul>-->
+  <!--      <%# obj.errors.full_messages.each do |message| %>-->
+  <!--        <li><%#= message %></li>-->
+  <!--      <%# end %>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+  <!--<%# end %>-->
+
+<!--<%# if obj.errors.any? %>-->
+<!--  <%#= obj.errors.count %>件のエラーが発生しました-->
+<!--  <ul>-->
+<!--    <%# obj.errors.full_messages.each do |message| %>-->
+<!--      <li><%#= message %></li>-->
+<!--    <%# end %>-->
+<!--  </ul>-->
+<!--<%# end %>-->
+
+<div class="col-md-8 mx-auto mb-2">
+  <% if obj.errors.any? %>
+    <div id="error_explanation" data-turbo-cache="false">
+      <h4>
+        <%= I18n.t("errors.messages.not_saved",
+                   count: obj.errors.count,
+                   resource: obj.class.model_name.human.downcase)
+         %>
+      </h4>
+      <ul>
+        <% obj.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

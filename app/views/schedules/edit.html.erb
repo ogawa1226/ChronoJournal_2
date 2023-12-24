@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="d-flex d-inline mt-4">
       
@@ -11,5 +13,6 @@
       </div>
       
   </div>
+    <%= render "layouts/errors", obj: @schedule %>
     <%= render 'form', schedule: @schedule, btn_text: '更新', date: @schedule.day %>
 </div>

@@ -7,6 +7,7 @@ class Reflection < ApplicationRecord
 
   has_many_attached :images
 
+  validates :title, presence: true
   validates :images, limit: { min: 0, max: 5 },
                       content_type: [:png, :jpg, :jpeg]
 

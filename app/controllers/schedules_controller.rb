@@ -35,10 +35,14 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    schedule = Schedule.new(schedule_params)
-    schedule.user_id = current_user.id
-    schedule.save
-    redirect_to calendars_path
+    @schedule = Schedule.new(schedule_params)
+    @schedule.user_id = current_user.id
+     @schedule.save
+      redirect_to calendars_path
+    # else
+    #   @schedules = Schedule.all
+    #   render :new
+    # end
   end
 
   def show
@@ -51,9 +55,12 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    schedule = Schedule.find(params[:id])
-    schedule.update(schedule_params)
-    redirect_to calendars_path
+    @schedule = Schedule.find(params[:id])
+    if @schedule.update(schedule_params)
+      redirect_to calendars_path
+    else
+      render :edit
+    end
   end
 
   def destroy
