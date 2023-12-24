@@ -10,13 +10,13 @@ class ReflectionsController < ApplicationController
   def create
     @reflection = Reflection.new(reflection_params)
     @reflection.schedule_id = params[:schedule_id]
+    @reflection.user_id = current_user.id
     # tag_list = params[:reflection][:tag].split(',')
     if @reflection.save
       flash[:notice] = "投稿に成功しました。"
       @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
-      flash[:notice] = "投稿に失敗しました。"
       render :new
     end
   end

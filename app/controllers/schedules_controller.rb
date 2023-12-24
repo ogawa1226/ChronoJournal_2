@@ -34,14 +34,14 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.user_id = current_user.id
-    # if 
-    @schedule.save
-      # flash[:notice] = "投稿に成功しました。"
+    if @schedule.save
+      flash[:notice] = "投稿に成功しました。"
       redirect_to calendars_path
-    # else
-    #   @schedules = Schedule.all
-    #   render :new
-    # end
+    else
+      @date = params[:schedule][:day]
+      @schedules = Schedule.all
+      render :new
+    end
   end
 
   def show

@@ -1,6 +1,15 @@
 ---
 ja:
   activerecord:
+    models:
+      schedule: スケジュール
+      reflection: 振り返り
+    attributes:
+      schedule:
+        title: タイトル
+        category: カテゴリー
+      reflection:
+        title: タイトル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
