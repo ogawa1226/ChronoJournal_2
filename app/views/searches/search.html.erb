@@ -54,7 +54,7 @@
                   <%= reflection.content.truncate(60) %>
                 </div>
                 <div class="col-md-3">
-                  <% @tags.each do |tag| %>
+                  <% reflection.tags.each do |tag| %>
                     <i class="fa-solid fa-tag"></i>
                     <%= link_to tag.name, search_tag_path(tag_id: tag.id) %>
                   <% end %>
