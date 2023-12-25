@@ -43,12 +43,11 @@ class ReflectionsController < ApplicationController
     @reflection = Reflection.find(params[:id])
     # tag_list = params[:reflection][:tag].split(',')
     if @reflection.update(reflection_params)
-      flash[:notice] = "編集に成功しました。"
+      flash[:notice] = "編集しました。"
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック
       @reflection.save_tags(params[:reflection][:tag])
       redirect_to schedules_path(date: @reflection.schedule.start_time.strftime("%Y-%m-%d"))
     else
-      flash[:notice] = "編集に失敗しました。"
       render :edit
     end
   end

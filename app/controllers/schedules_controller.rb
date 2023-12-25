@@ -12,18 +12,6 @@ class SchedulesController < ApplicationController
     reflection_tags = ReflectionTag.where(reflection_id: reflection_ids).map{|tag| tag.tag.name}
     # タグ配列の重複回数をカウントして、@tagsに[[tagName, count], [tagName, count]]の形式で詰め込む
     @tags = reflection_tags.group_by(&:itself).map{ |key, value| [key, value.count] }.to_a
-
-    # @tags = []
-    # current_user.schedules.each do |s|
-    #   pp "-----"
-    #   pp s
-    #   s.reflections.each do |r|
-    #     @tags << r.tags
-    #   end
-    # end
-
-    # pp "-----------------------"
-    # pp @tags
   end
 
   def new
@@ -56,6 +44,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
+      flash[:notice] = "更新しました。"
       redirect_to calendars_path
     else
       render :edit
@@ -65,6 +54,7 @@ class SchedulesController < ApplicationController
   def destroy
     schedule = Schedule.find(params[:id])
     schedule.destroy
+    flash[:notice] = "削除されました。"
     redirect_to calendars_path
   end
 

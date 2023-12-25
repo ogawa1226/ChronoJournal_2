@@ -10,12 +10,6 @@ class Reflection < ApplicationRecord
   validates :title, presence: true
   validates :images, limit: { min: 0, max: 5 },
                       content_type: [:png, :jpg, :jpeg]
-  # validate :check_uniqueness_tags
-  
-  # def check_uniqueness_tags
-  #   taglist = tags.split(/[[:blank:]]+/)
-  #   errors.add(:tag, 'タグが重複しています。') if taglist.uniq.length != taglist.length
-  # end
 
   # mapメソッドを使って各イメージに対してリサイズした新しい画像を返す
   def get_images
