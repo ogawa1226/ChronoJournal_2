@@ -39,16 +39,16 @@
           </div>
         </div>
         
-        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="card">
-            <div class="card-header" role="tab" id="headingOne">
+        <div class="accordion" id="accordion_<%= schedule.id %>" role="tablist" aria-multiselectable="true">
+          <div class="card bg-transparent border">
+            <div class="card-header border" role="tab" id="heading_<%= schedule.id %>">
               <h5 class="mb-0">
-                <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
-                  ここに入れる？
+                <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapse_<%= schedule.id %>" role="button" aria-expanded="true" aria-controls="collapse_<%= schedule.id %>">
+                  振り返り表示
                 </a>
               </h5>
             </div>
-            <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapse_<%= schedule.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= schedule.id %>" data-parent="#accordion_<%= schedule.id %>">
               <div class="card-body">
                 <div class="center-block">
                   <ul class="col-md-9 mx-auto">

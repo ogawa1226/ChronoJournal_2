@@ -27,19 +27,19 @@
     <h3 class="text-center mt-3 my-5">
       <%= simple_format(@schedule.memo, class: "m-0") %>
     </h3>
-    
+
     <div class="container">
       <div class="row">
-        <div class="col-md-9 mx-auto">
-          <div class="d-flex d-inline"> 
-            <div class="col-md-3 ml-4">
-              <%= link_to "戻る", :back, class: "btn btn-outline-secondary btn-block" %>
+        <div class="col-md-8 mx-auto mb-5">
+          <div class="d-flex justify-content-center">
+            <div class="mx-4">
+              <%= link_to "戻る", :back, class: "btn btn-outline-secondary btn-block px-5" %>
             </div>
-            <div class="col-md-3 mx-auto">
-              <%= link_to "編集", edit_schedule_path(@schedule.id), class: "btn btn-outline-secondary btn-block" %>
+            <div class="mx-4">
+              <%= link_to "編集", edit_schedule_path(@schedule.id), class: "btn btn-outline-secondary btn-block px-5" %>
             </div>
-            <div class="col-md-3 mr-4">
-              <%= link_to "削除", schedule_path(@schedule.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-secondary btn-block" %>
+            <div class="mx-4">
+              <%= link_to "削除", schedule_path(@schedule.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-secondary btn-block px-5" %>
             </div>
           </div>
         </div>

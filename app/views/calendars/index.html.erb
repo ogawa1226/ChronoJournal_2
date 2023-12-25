@@ -1,18 +1,14 @@
 <div class="container mt-3 ">
   <div class="form-row">
-    <div class="col-7"></div>
-    <div class="col-5 d-flex d-inline">
-      
+    <div class="col-5 offset-7 d-flex d-inline">
       <div class="ml-5">
         <%= link_to marks_schedules_path do %>
           <i class="fa-solid fa-star fa-2x" area-hidden="true" style="color: yellow;"></i>
         <% end %>
       </div>
-      
       <div class="ml-2">
-      <%= render "searches/form" %>
+        <%= render "searches/form" %>
       </div>
-        
     </div>
   </div>
 

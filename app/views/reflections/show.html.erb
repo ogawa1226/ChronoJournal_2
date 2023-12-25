@@ -18,7 +18,7 @@
     <% if @reflection.images.attached? %>
       <% @reflection.get_images.each do |image| %>
         <%= link_to image, "data-lightbox": image do %>
-          <%= image_tag image, size: "200x200" %>
+          <%= image_tag image, class: "m-1", size: "200x200" %>
         <% end %>
       <% end %>
     <% end %>
