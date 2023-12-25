@@ -38,33 +38,33 @@
               <% end %>
             </li>
             <li class="nav-item text-center">
-              <%= link_to schedules_path do %>
-                <i class="fa-regular fa-clock mr-3 ml-3"></i>
+              <%= link_to schedules_path, class: "mr-3 ml-3" do %>
+                <i class="fa-regular fa-clock"></i>
                 今日の予定
               <% end %>
             </li>
             <li class="nav-item text-center">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa-solid fa-right-from-bracket ml-3"></i>
+              <%= link_to destroy_user_session_path, class: "ml-3", method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
                 ログアウト
               <% end %>
             </li>
           <% else %>
             <li class="nav-item text-center">
-              <%= link_to new_user_registration_path do %>
-                <i class="fa-solid fa-user-plus mr-3"></i>
+              <%= link_to new_user_registration_path, class: "mr-3" do %>
+                <i class="fa-solid fa-user-plus"></i>
                 新規登録
               <% end %>
             </li>
             <li class="nav-item text-center">
-              <%= link_to new_user_session_path do %>
-                <i class="fa-solid fa-right-to-bracket mr-3 ml-3"></i>
+              <%= link_to new_user_session_path, class: "mr-3 ml-3" do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
                 ログイン
               <% end %>
             </li>
             <li class="nav-item text-center">
-              <%= link_to users_guest_sign_in_path, method: :post do %>
-                <i class="fa-solid fa-user ml-3"></i>
+              <%= link_to users_guest_sign_in_path, class: "ml-3", method: :post do %>
+                <i class="fa-solid fa-user"></i>
                 ゲストログイン
               <% end %>
             </li>
