@@ -11,7 +11,10 @@ class SchedulesController < ApplicationController
     # 自分の振り返りに紐づくタグ名を配列として取得
     reflection_tags = ReflectionTag.where(reflection_id: reflection_ids).map{|tag| tag.tag.name}
     # タグ配列の重複回数をカウントして、@tagsに[[tagName, count], [tagName, count]]の形式で詰め込む
-    @tags = reflection_tags.group_by(&:itself).map{ |key, value| [key, value.count] }.to_a
+    @tags = Kaminari.paginate_array(
+                      reflection_tags.group_by(&:itself).map{ |key, value| [key, value.count] }.to_a
+                      ).page(params[:page])
+    # @tag = @tags.page(params[:page])
   end
 
   def new

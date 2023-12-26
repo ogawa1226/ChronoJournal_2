@@ -134,7 +134,7 @@ footer {
 }
 
 .notice {
-  position: absolute; 
+  position: absolute;
   top: 20px;
   left: 200px;
   color: #0067C0;
@@ -156,4 +156,8 @@ main {
 
 footer {
   grid-area: footer;
+}
+
+.page {
+  margin: 0 3px;
 }
