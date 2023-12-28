@@ -1,0 +1,41 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-9 order-1 order-md-0">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="d-flex d-inline">
+              <h4><%= @date %></h4>
+              <div class="col text-right">
+                <%= link_to '追加', new_schedule_path(date: @date), class: "btn btn-outline-secondary" %>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <%= render 'list', schedules: @schedules, is_link: true %>
+      </table>
+    </div>
+
+    <div class="col-md-3 order-0 order-md-1">
+      <table class="table table-bordered bg-white">
+        <thead>
+          <tr>
+            <th>タグリスト</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <% @tags.sort_by {|x| x[0]}.each do |tag_name, count| %></br>
+                <% tag_id = Tag.find_by(name: tag_name) %>
+                <i class="fa-solid fa-tag"></i>
+                <%= link_to "#{tag_name} (#{count})", search_tag_path(tag_id: tag_id) %>
+              <% end %>
+              <%= paginate @tags %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

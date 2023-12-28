@@ -1,0 +1,12 @@
+<div class="container my-5">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <h6>カテゴリー検索"<%= @category.name %>"</h6>
+        </th>
+      </tr>
+    </thead>
+    <%= render 'schedules/list', schedules: @schedules, is_link: false %>
+  </table>
+</div>

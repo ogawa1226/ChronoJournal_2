@@ -1,0 +1,67 @@
+
+<tbody>
+  <% schedules.each do |schedule| %>
+    <tr>
+      <td>
+        <div class="d-flex d-inline">
+          <div id="mark_buttons_<%= schedule.id %>">
+            <%= render "marks/mark", schedule: schedule %>
+          </div>
+          <div class="col font-size my-auto">
+            <% if schedule.all_day %>
+              <%= schedule.start_time.strftime("%Y年%m月%d日") %> 終日
+            <% else %>
+              <%= schedule.start_time.strftime("%Y年%m月%d日 %H時%M分") %>
+              〜
+              <%= schedule.end_time.strftime("%Y年%m月%d日 %H時%M分") %>
+            <% end %>
+          </div>
+        </div>
+        
+        <div class="d-flex d-inline mb-2">
+          <span class="col-md-9">
+            <div class="d-flex d-inline"> 
+              <div class="col-md-4 text-right">
+                <%= link_to schedule.title, schedule_path(schedule.id) %>
+              </div>
+              <div class="col-md-5">
+                <% if is_link %>
+                  <%= link_to schedule.category.name, category_schedules_path(schedule.category.id) %>
+                <% else %>
+                  <%= schedule.category.name %>
+                <% end %>
+              </div>
+            </div>
+          </span>
+          
+          <div class="col-md-3 text-right ">
+            <%= link_to "振り返り投稿", new_schedule_reflection_path(schedule_id: schedule.id), class: "btn btn-outline-secondary btn-sm" %>
+          </div>
+        </div>
+        
+        <div class="accordion" id="accordion_<%= schedule.id %>" role="tablist" aria-multiselectable="true">
+          <div class="card bg-transparent border">
+            <div class="card-header border" role="tab" id="heading_<%= schedule.id %>">
+              <h5 class="mb-0">
+                <a class="text-body d-block p-3 m-n3" data-toggle="collapse" href="#collapse_<%= schedule.id %>" role="button" aria-expanded="true" aria-controls="collapse_<%= schedule.id %>">
+                  振り返り表示
+                </a>
+              </h5>
+            </div>
+            <div id="collapse_<%= schedule.id %>" class="collapse" role="tabpanel" aria-labelledby="heading_<%= schedule.id %>" data-parent="#accordion_<%= schedule.id %>">
+              <div class="card-body">
+                <div class="center-block">
+                  <ul class="col-md-9 mx-auto">
+                    <% schedule.reflections.each do |reflection| %>
+                      <li><%= link_to reflection.title, schedule_reflection_path(reflection.schedule, reflection) %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</tbody>

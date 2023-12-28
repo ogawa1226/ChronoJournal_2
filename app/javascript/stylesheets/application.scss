@@ -1,0 +1,163 @@
+$link-decoration: none; // リンク線を消す
+$link-hover-decoration: none; // ホバー時にリンクの線を消す
+$link-color: #F5B351; // リンク色
+$link-hover-color: #F55E51; // リンクホバー時の色
+$enable-rounded: false; // 角角
+$primary: #E89A6F;
+$secondary: #E87070;
+$success: #937878;
+
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Raleway&family=Whisper&display=swap');
+@import './simple_calendar';
+
+html, body {
+  font-family: 'Raleway', 'M PLUS Rounded 1c', sans-serif;
+}
+
+header {
+  width: 100%;
+  background-color: #626AEB;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(#2387EB, #C5EBE6);
+}
+
+.logo {
+  font-family: 'Whisper', cursive;
+}
+
+.sub-title {
+  font-size: 20px;
+}
+
+// homes/top レイアウト
+.title {
+  display: flex;
+  overflow: hidden;
+  color: #aa8f7b;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.title span {
+  display: block;
+  transform: translate(0, 105%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+
+.title.-visible span {
+  transform: translate(0, 0);
+}
+
+.title span:nth-child(2) {
+  transition-delay: 0.06s;
+}
+.title span:nth-child(3) {
+  transition-delay: 0.12s;
+}
+.title span:nth-child(4) {
+  transition-delay: 0.18s;
+}
+.title span:nth-child(5) {
+  transition-delay: 0.24s;
+}
+.title span:nth-child(6) {
+  transition-delay: 0.30s;
+}
+.title span:nth-child(7) {
+  transition-delay: 0.36s;
+}
+.title span:nth-child(8) {
+  transition-delay: 0.42s;
+}
+.title span:nth-child(9) {
+  transition-delay: 0.48s;
+}
+.title span:nth-child(10) {
+  transition-delay: 0.54s;
+}
+.title span:nth-child(11) {
+  transition-delay: 0.6s;
+}
+.title span:nth-child(12) {
+  transition-delay: 0.66s;
+}
+.title span:nth-child(13) {
+  transition-delay: 0.72s;
+}
+.title span:nth-child(14) {
+  transition-delay: 0.78s;
+}
+
+.blur{
+  animation-name: blurAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  // color: #626AEB;
+  color: #cab8d9;
+  stroke: red;
+}
+
+@keyframes blurAnime{
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.wrapper{
+  min-height: 100vh;
+}
+
+.footer-position {
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+
+footer {
+  width: 100%;
+  height: 120px;
+  background-color: #98EBA6;
+}
+
+.notice {
+  position: absolute;
+  top: 20px;
+  left: 200px;
+  color: #0067C0;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template: "header" auto "main" 1fr "footer" auto / 100%;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.page {
+  margin: 0 3px;
+}

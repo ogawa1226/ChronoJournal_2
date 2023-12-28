@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <div class="row">
+    
+    <h4><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h4>
+    <div class="col-md-5 mx-auto">
+      <h2>
+        <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
+        振り返り編集
+        <i class="fa-solid fa-seedling fa-flip-horizontal", style="color: #60EAB1;"></i>
+      </h2>
+    </div>
+  </div>
+    <%= render "layouts/errors", obj: @reflection %>
+    <%= render 'form', reflection: @reflection, btn_text: '編集' %>
+</div>

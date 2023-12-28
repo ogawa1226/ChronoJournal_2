@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <table class="table table-bordered">
+      
+    <h2 class="text-center">
+      <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
+      重要なスケジュール
+      <i class="fa-solid fa-seedling fa-flip-horizontal", style="color: #60EAB1;"></i>
+    </h2>
+    
+    <%= render 'schedules/list', schedules: @schedules, is_link: true %>
+    
+  </table>
+</div>

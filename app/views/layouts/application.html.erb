@@ -1,16 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChronoJournal</title>
+    <title>Chrono Journal</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/b0d1a7b1c5.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+
+
+
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="container">
+        <h1 class="logo text-center">
+          Chrono Journal
+          <span class="d-block text-center sub-title">Your Journal</span>
+        </h1>
+
+        <ul class="d-flex justify-content-center list-unstyled">
+          <% if user_signed_in? %>
+            <li class="nav-item text-center">
+              <%= link_to root_path, class: "mr-3 ml-5" do %>
+                <i class="fa-solid fa-house"></i>
+                トップ
+              <% end %>
+            </li>
+            <li class="nav-item text-center">
+              <%= link_to calendars_path, class: "mr-3 ml-3" do %>
+                <i class="fa-solid fa-calendar-days"></i>
+                カレンダー
+              <% end %>
+            </li>
+            <li class="nav-item text-center">
+              <%= link_to schedules_path, class: "mr-3 ml-3" do %>
+                <i class="fa-regular fa-clock"></i>
+                今日の予定
+              <% end %>
+            </li>
+            <li class="nav-item text-center">
+              <%= link_to destroy_user_session_path, class: "ml-3", method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                ログアウト
+              <% end %>
+            </li>
+          <% else %>
+            <li class="nav-item text-center">
+              <%= link_to new_user_registration_path, class: "mr-3" do %>
+                <i class="fa-solid fa-user-plus"></i>
+                新規登録
+              <% end %>
+            </li>
+            <li class="nav-item text-center">
+              <%= link_to new_user_session_path, class: "mr-3 ml-3" do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                ログイン
+              <% end %>
+            </li>
+            <li class="nav-item text-center">
+              <%= link_to users_guest_sign_in_path, class: "ml-3", method: :post do %>
+                <i class="fa-solid fa-user"></i>
+                ゲストログイン
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="flash-message">
+        <div class="col-md-6 text-center">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <%= yield %>
+    </main>
+    <footer></footer>
   </body>
+
 </html>

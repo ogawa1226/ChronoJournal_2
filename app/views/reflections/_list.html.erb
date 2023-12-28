@@ -1,0 +1,5 @@
+<!--タグリスト-->
+<% tag.each do |tag| %>
+  <i class="fa-solid fa-tag"></i>
+  <%= link_to tag.name,search_tag_path(tag_id: tag.id) %>
+<% end %>

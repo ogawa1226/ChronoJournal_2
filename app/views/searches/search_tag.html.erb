@@ -1,0 +1,17 @@
+
+<div class="container">
+
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <h6>Tag search for "<%= @tag.name %>"</h6>
+        </th>
+      </tr>
+    </thead>
+    <%= render 'schedules/list', schedules: @schedules, is_link: false %>
+
+  </table>
+</div>

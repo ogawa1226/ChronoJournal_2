@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= form_with model: [reflection.schedule, reflection] do |f| %>
+
+        <div class="field  mt-3">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+      
+        <div class="field mt-3">
+          <%= f.label :images, "写真" %>
+          <%= f.file_field :images, accept: "image/*", multiple: true %>
+        </div>
+      
+        <% if controller_name == "reflections" && action_name == "edit" %>
+          <div class="field mt-3">
+            <%= f.label :images_delete do %>
+              <%= f.check_box :images_delete %>
+              投稿写真を削除する
+            <% end %>
+          </div>
+        <% end %>
+      
+        <div class="field mt-2">
+          <%= f.label :content, "内容" %>
+          <%= f.text_area :content, rows: 5, class: "form-control" %>
+        </div>
+      
+        <div class="field mt-3">
+          <%= f.label :tag, "タグ（空白で複数可）" %>
+          <%= f.text_field :tag, value: @tag, class: "form-control" %>
+        </div>
+      
+        <div class="row">
+          <div class="col-md-6 mx-auto mt-3 mb-5">
+            <%= f.submit btn_text, class: "btn btn-outline-secondary btn-block" %>
+          </div>
+        </div>
+      <% end %>
