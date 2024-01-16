@@ -12,16 +12,23 @@
     </div>
   </div>
 
-  <div class="mb-5">
-    <%= month_calendar(events: @schedules, start_attribute: :start_time, end_attribute: :start_time) do |date, schedules| %>
-      <%= link_to date.day, schedules_path(date: [date.year, date.month, date.day].join("-")) %>
+  <div class="d-flex">
+    <div class="col-9">
+      <%= month_calendar(events: @schedules, start_attribute: :start_time, end_attribute: :start_time) do |date, schedules| %>
+        <%= link_to date.day, schedules_path(date: [date.year, date.month, date.day].join("-")) %>
 
-      <% schedules.each do |schedule| %>
-        <div>
-          <%= schedule.title %>
-        </div>
+        <% schedules.each do |schedule| %>
+          <div>
+            <%= schedule.title %>
+          </div>
+        <% end %>
+
       <% end %>
-
-    <% end %>
+      <div class="col-md-3 d-flex align-items-center mb-5">
+        <div class="flex-fill mb-5">
+          <%= render "tags/list", tags: @tags %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

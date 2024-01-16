@@ -1,0 +1,21 @@
+<div class="order-0 order-md-1">
+  <table class="table table-bordered bg-white">
+    <thead>
+      <tr>
+        <th>タグリスト</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <% tags.sort_by {|x| x[0]}.each do |tag_name, count| %></br>
+            <% tag_id = Tag.find_by(name: tag_name) %>
+            <i class="fa-solid fa-tag"></i>
+            <%= link_to "#{tag_name} (#{count})", search_tag_path(tag_id: tag_id) %>
+          <% end %>
+          <%= paginate tags %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -4,6 +4,8 @@ class CalendarsController < ApplicationController
   def index
     @date = params[:date]
     @schedules = current_user.schedules
+    
+    @tags = Tag.get_per_count(current_user, params[:page])
   end
 
   private
