@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  
   def index
     redirect_to new_user_registration_path
   end
@@ -8,4 +9,5 @@ class SessionsController < ApplicationController
     sign_in end_user
     redirect_to calendars_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+  
 end

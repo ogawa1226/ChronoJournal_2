@@ -1,6 +1,4 @@
 class ReflectionsController < ApplicationController
-  def index
-  end
 
   def new
     @date = params[:date]
@@ -41,7 +39,6 @@ class ReflectionsController < ApplicationController
 
   def update
     @reflection = Reflection.find(params[:id])
-    # tag_list = params[:reflection][:tag].split(',')
     if @reflection.update(reflection_params)
       flash[:notice] = "編集しました。"
       @reflection.images.purge if params[:reflection][:images_delete].to_i == 1 # 画像削除チェック

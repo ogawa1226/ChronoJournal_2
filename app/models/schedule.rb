@@ -11,4 +11,5 @@ class Schedule < ApplicationRecord
   def self.looks(word)
     @schedule = Schedule.where("title LIKE?", "%#{word}%")
   end
+  
 end
