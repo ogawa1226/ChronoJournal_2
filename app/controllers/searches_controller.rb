@@ -13,7 +13,6 @@ class SearchesController < ApplicationController
   end
 
   def search_tag
-
     # タグを取得
     @tag = Tag.find(params[:tag_id])
     # タグに紐づいた自分自身の振り返りを取得して、そのスケジュールIDを配列で取得し、重複を取り除く(uniq)

@@ -51,8 +51,6 @@ class SchedulesController < ApplicationController
     redirect_to calendars_path
   end
 
-
-
   private
 
   def schedule_params

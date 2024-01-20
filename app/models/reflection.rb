@@ -18,7 +18,6 @@ class Reflection < ApplicationRecord
     end
   end
 
-
   def self.looks(word)
     @reflection = Reflection.where("title LIKE?", "%#{word}%")
   end
@@ -39,4 +38,5 @@ class Reflection < ApplicationRecord
       self.tags << new_reflection_tag unless self.tags.exists?(name: new)
     end
   end
+  
 end

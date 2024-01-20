@@ -1,8 +1,8 @@
 <div class="container mt-4">
   <div class="row">
-    
+
     <h4><%= @reflection.schedule.start_time.strftime("%Y-%m-%d") %></h4>
-    
+
     <div class="col-md-6 mx-auto">
       <h2>
         <i class="fa-solid fa-seedling", style="color: #60EAB1;"></i>
@@ -13,7 +13,7 @@
   </div>
   <%= render "layouts/errors", obj: @reflection %>
   <%= render partial: 'form', locals: {reflection: @reflection, btn_text: '投稿'} %>
-  
+
 </div>
 
 
